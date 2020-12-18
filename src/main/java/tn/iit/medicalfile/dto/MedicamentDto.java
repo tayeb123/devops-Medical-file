@@ -14,20 +14,15 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientDto {
+public class MedicamentDto {
+    @NotNull
     private long id;
     @NotNull
-    private Date birthday;
-    @NotNull
+    @Size(min = 3)
     @NotEmpty
     private String name;
     @NotNull
-    @Size(min = 8,max = 8)
-    private long cin;
-
-    public PatientDto(long id)
-    {
-        this.id=id;
-    }
-
+    private float dosage;
+    @NotNull
+    private float price;
 }

@@ -4,12 +4,17 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import tn.iit.medicalfile.models.Patient;
+import javax.validation.constraints.NotNull;
 
 @Data
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class DossierDto {
-    private Patient patient;
+public class DossierDto{
+    private long id;
+    @NotNull
+    private long patientId;
+    public DossierDto(Long id){
+        this.id=id;
+    }
 }

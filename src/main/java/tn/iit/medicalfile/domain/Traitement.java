@@ -1,11 +1,11 @@
-package tn.iit.medicalfile.models;
+package tn.iit.medicalfile.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.List;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
@@ -21,9 +21,10 @@ public class Traitement implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     @ManyToOne
     private Dossier dossier;
-
+    @NotNull
     private long medicamentId;
 
     public Traitement(Dossier dossier, long medicamentId) {

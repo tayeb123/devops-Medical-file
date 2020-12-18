@@ -1,15 +1,15 @@
-package tn.iit.medicalfile.models;
+package tn.iit.medicalfile.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Data
 @NoArgsConstructor
@@ -17,20 +17,22 @@ import java.util.Date;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 @Entity
-public class Patient implements Serializable {
+public class Dossier implements Serializable {
 
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private Date birthday;
-    private String name;
-    private long cin;
+    @CreatedDate
+    private Date createdDate;
+    @NotNull
+    @OneToOne
+    private Patient patient;
 
-    public Patient(String name,long cin,Date birthday){
-        this.name=name;
-        this.cin=cin;
-        this.birthday=birthday;
+    public Dossier(Patient patient){
+        this.patient=patient;
     }
+
+
 }
