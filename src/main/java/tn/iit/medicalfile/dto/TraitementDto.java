@@ -23,8 +23,6 @@ public class TraitementDto {
     @NotEmpty
     private String medicamentName;
     @NotNull
-    private float medicamentDosage;
-    @NotNull
     private float medicamentPrice;
     @NotNull
     private long medicamentId;

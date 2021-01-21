@@ -15,6 +15,7 @@ public class DossierFactory {
         DossierDto dossierDto = new DossierDto ();
         dossierDto.setId (dossier.getId ());
         dossierDto.setPatientId (dossier.getPatient ().getId ());
+        dossierDto.setPatientNom(dossier.getPatient().getName());
         return dossierDto;
     }
 

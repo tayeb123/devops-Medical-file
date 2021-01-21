@@ -27,18 +27,14 @@ public class Patient implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotNull
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
-    private Date birthday;
-    @NotNull
     @NotEmpty
     private String name;
     @NotNull
     @Size(min = 8,max = 8)
-    private long cin;
+    private String cin;
 
-    public Patient(String name,long cin,Date birthday){
+    public Patient(String name,String cin){
         this.name=name;
         this.cin=cin;
-        this.birthday=birthday;
     }
 }

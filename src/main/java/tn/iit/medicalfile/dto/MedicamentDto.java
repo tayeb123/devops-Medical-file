@@ -20,9 +20,7 @@ public class MedicamentDto {
     @NotNull
     @Size(min = 3)
     @NotEmpty
-    private String name;
+    private String nom;
     @NotNull
-    private float dosage;
-    @NotNull
-    private float price;
+    private float prix;
 }

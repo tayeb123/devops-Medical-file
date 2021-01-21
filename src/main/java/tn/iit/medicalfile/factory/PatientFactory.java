@@ -12,7 +12,6 @@ public class PatientFactory {
     {
         PatientDto patientDto = new PatientDto ();
         patientDto.setId (patient.getId ());
-        patientDto.setBirthday (patient.getBirthday ());
         patientDto.setCin (patient.getCin ());
         patientDto.setName (patient.getName ());
         return patientDto;
@@ -22,7 +21,6 @@ public class PatientFactory {
     {
         Patient patient = new Patient ();
         patient.setId (patientDto.getId ());
-        patient.setBirthday (patientDto.getBirthday ());
         patient.setCin (patientDto.getCin ());
         patient.setName (patientDto.getName ());
         patient.setName (patientDto.getName ());

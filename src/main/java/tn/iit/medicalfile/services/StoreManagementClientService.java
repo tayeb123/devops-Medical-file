@@ -41,4 +41,13 @@ public class StoreManagementClientService {
                 new HttpEntity<> (null,new HttpHeaders ()),
                 MedicamentDto.class).getBody ();
     }
+    public List<MedicamentDto> getMedicamentsByIds(List<Long> ids){
+        UriComponents uriComponents= UriComponentsBuilder.fromUriString (Links.MEDICAMENTS+"/searches")
+                .build ()
+                .encode ();
+        return restTemplate.exchange (uriComponents.toUri (),
+                HttpMethod.POST,
+                new HttpEntity<> (ids,new HttpHeaders ()),
+                new ParameterizedTypeReference<List<MedicamentDto>> (){}).getBody ();
+    }
 }

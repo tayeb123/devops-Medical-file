@@ -17,13 +17,11 @@ import java.util.Date;
 public class PatientDto {
     private long id;
     @NotNull
-    private Date birthday;
-    @NotNull
     @NotEmpty
     private String name;
     @NotNull
     @Size(min = 8,max = 8)
-    private long cin;
+    private String cin;
 
     public PatientDto(long id)
     {
