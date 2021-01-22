@@ -28,7 +28,6 @@ public class DossierService {
     public void deleteById(Long id) {
         this.dossierDao.deleteById (id);
     }
-
     public DossierDto findOne(Long id) {
         DossierDto dossierDto = DossierFactory.dossierToDossierDto(this.dossierDao.getOne(id));
         dossierDto.setTraitement (this.traitementService.findAllByDossierId (id));
